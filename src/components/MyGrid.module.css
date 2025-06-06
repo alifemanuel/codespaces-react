@@ -8,7 +8,7 @@
         "aside1 footer1 aside2"
         "footer2 footer2 aside2";
 
-    grid-template-rows: 10rem 5rem auto 10rem 10rem;
+    grid-template-rows: 10rem 5rem calc(100vh - 15rem) 10rem 10rem;
     grid-template-columns: 1fr 3fr 1fr;
 
     @media(max-width: 1200px) {
