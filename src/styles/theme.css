@@ -21,4 +21,15 @@
   --gray-700: #374151;
   --gray-800: #1f2937;
   --gray-900: #111827;
+  --blue-gradient: linear-gradient(90deg, #9dd1f1ff 0%, #508aa8ff 50%, #031927ff 100%);
+  --blue-50: #eaf6fb;
+  --blue-100: #d4ecf7;
+  --blue-200: #b0daf0;
+  --blue-300: #8cc7e9;
+  --blue-400: #68b5e2;
+  --blue-500: #44a3db;
+  --blue-600: #3181af;
+  --blue-700: #236080;
+  --blue-800: #153f51;
+  --blue-900: #031927;
 }
