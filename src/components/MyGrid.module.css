@@ -6,7 +6,7 @@
         "main"
         "footer";
 
-    grid-template-rows: 20rem auto 15rem;
+    grid-template-rows: 15rem auto 15rem;
     grid-template-columns: 3fr;
 
 
@@ -25,29 +25,57 @@
         
 }
 
+.gridheader {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-template-rows: repeat(auto-fit, min-content);
+    gap: 3rem;
+    padding: 3rem;
+    justify-content: center;
+}
+
+.gridfooter{
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+grid-template-rows: repeat(auto-fit, min-content);
+padding: 3rem;
+justify-content: center;
+}
+
+.rectangle {
+      width: 200px;
+      height: 75px; 
+      background-color: rgb(60, 101, 236);; 
+      border-radius: 1rem; 
+      box-shadow: -0.1rem -0.1rem 0.9rem rgba(0,0,0, 0.5);
+      display: flex;
+      justify-content: space-evenly;
+      padding: 2.5rem;
+      gap: 2rem;
+}
+
 .header {
     grid-area: header;
     background-color: linear-gradient(135deg, #0a2540 0%, #193763 100%);
-    display: grid;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
     color:rgb(60, 101, 236);
     font-size: 3rem;
 }
 
-
 .footer{
     grid-area: footer;
+    display: flex;
+    justify-content: space-between;
     background-color: white;
     color: black;
-    grid-template-areas: 
-        "l1 l2 l3";
-    
-        grid-template-rows: repeat(auto-fit, min-content);
 }
 
 .grid {
     /* height: 100vh; */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     grid-template-rows: repeat(auto-fit, min-content);
     gap: 3rem;
     padding: 3rem;
@@ -69,31 +97,18 @@
 
 .card {
     background-color: rgb(60, 101, 236);
-    border-radius: 1rem;
+    border-radius: 2rem;
     color: var(--primary-contrast-light);
     padding: 1rem;
     box-shadow: 0.5rem 0.5rem 0.5rem rgba(0,0,0, 0.5);
     font-size: 2rem;
     text-align: center;
     height: 60rem;
+    
 }
 
 .imagem {
-    object-fit: cover;
     border-radius: 3rem;
-    padding: 1rem;
-}
-
-.l1{ 
-    grid-area: l1;
-}
-
-.l2{
-    grid-area: l2;
-
-}
-
-.l3{
-    grid-area: l3;
-
+    padding: 2rem;
+    
 }
