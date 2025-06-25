@@ -1,12 +1,12 @@
 import "./styles/theme.css";
 import "./styles/global.css";
-import { MyGrid } from "./components/MyGrid";
+import { LuckyNumber } from "./components/LuckyNumber.jsx";
 
 export default function App() {
   
   return (
     <>
-      <MyGrid/>
+      <LuckyNumber/>
     </>
   );
 }
