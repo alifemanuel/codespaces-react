@@ -4,26 +4,30 @@ import { useState } from "react";
 
 export function LuckyNumber() {
     const [LuckyNumber, setLuckyNumber] = useState(0);
-
-    const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    const [Array, setArray] = useState([]);
 
     function handleClick() {
         setLuckyNumber(Math.floor(Math.random() * 40) + 1);
+        setArray(prev => [...prev, LuckyNumber]);
     }
     return ( 
+        
     <div className={styles.container}>
         
         {/* Operador ternário: */}
-        {LuckyNumber === 0 ? (
-            <h1>Lucky Number </h1>
+
+        {Array.includes(LuckyNumber) ? (
+            <h2 className={styles.error}>Número já sorteado! ({LuckyNumber})<br/>Array: [{Array}]</h2>
+            
         ) : (
-            <h1>Lucky Number = {LuckyNumber}</h1>
+            <h2 className={styles.success}>Número sorteado = {LuckyNumber} <br/>Array: [{Array}]</h2>
         )}
         
-        <h1>Array: </h1>
         <button className={styles.button} onClick={handleClick}> 
-            I'm Feeling Lucky Today!
+            Sortear
         </button>
+
+
     </div>
     );
 
