@@ -7,27 +7,32 @@ export function LuckyNumber() {
     const [Array, setArray] = useState([]);
 
     function handleClick() {
-        setLuckyNumber(Math.floor(Math.random() * 40) + 1);
-        setArray(prev => [...prev, LuckyNumber]);
+        var n = Math.floor(Math.random() * 40) + 1;
+        
+        if(Array.includes(n)) {
+            alert(`O número ${n} já foi sorteado!`);
+        }else{
+            setArray([...Array, LuckyNumber]);
+            setLuckyNumber(n);
+
+        }
     }
     return ( 
         
     <div className={styles.container}>
         
         {/* Operador ternário: */}
-
-        {Array.includes(LuckyNumber) ? (
-            <h2 className={styles.error}>Número já sorteado! ({LuckyNumber})<br/>Array: [{Array}]</h2>
+        {LuckyNumber === 0 ? (
+            <h2>Sorteador de números</h2>
             
         ) : (
-            <h2 className={styles.success}>Número sorteado = {LuckyNumber} <br/>Array: [{Array}]</h2>
+            <h2>Número sorteado = {LuckyNumber}</h2>
         )}
         
-        <button className={styles.button} onClick={handleClick}> 
-            Sortear
-        </button>
-
-
+        <button className={styles.button} onClick={handleClick}>SORTEAR</button>
+        <div className={styles.array}>
+        <h3>Array: [{Array.toString()}]</h3>
+        </div>
     </div>
     );
 
