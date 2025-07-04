@@ -1,12 +1,12 @@
 import "./styles/theme.css";
 import "./styles/global.css";
-import { LuckyNumber } from "./components/LuckyNumber.jsx";
+import { ProductList } from "./components/ProductList.jsx";
 
 export default function App() {
   
   return (
     <>
-      <LuckyNumber/>
+      <ProductList/>
     </>
   );
 }
