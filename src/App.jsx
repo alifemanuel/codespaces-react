@@ -13,14 +13,31 @@ export default function App() {
     setCart((prevCart) => [...prevCart, product]);
   }
 
+  function removeAllFromCart() {
+    setCart([]);
+  }
+
+  function removeFromCart(product) {
+    const newCart = cart.filter((item) => item !== product);
+    setCart(newCart);
+  }
+
   return (
     // React Fragment
     <>
       <Header cart={cart} />
       <Routes>
         <Route path="/" element={<ProductList addToCart={addToCart} />} />
-        <Route path="/cart" element={<Cart cart={cart} />} />
-        {/* Add more routes as needed */}
+        <Route
+          path="/cart"
+          element={
+            <Cart
+              cart={cart}
+              removeAllFromCart={removeAllFromCart}
+              removeFromCart={removeFromCart}
+            />
+          }
+        />
       </Routes>
     </>
   );
