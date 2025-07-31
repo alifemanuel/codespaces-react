@@ -14,7 +14,7 @@ export function Header() {
       <div>
         <Link to="/cart"><ShoppingBasket size={24} /></Link>
         <div className={styles.cartCount}>
-          {cart.length > 0 ? cart.reduce((total, product) => total + product.quantity, 0) : 0}
+          {cart.length > 0 ? cart.reduce((total, cart) => total + cart.quantity, 0) : 0}
         </div>
         <p>
           Total $: {cart.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2)}

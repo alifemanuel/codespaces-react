@@ -7,6 +7,14 @@
   align-items: center;
 }
 
+.trashButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
 .cartItem {
   display: flex;
   flex-direction: row;

@@ -10,6 +10,7 @@ export const CartContext = createContext({
   addToCart: () => {},
   updateQtyCart: () => {},
   clearCart: () => {},
+  removeFromCart: () => {},
 });
 
 export function CartProvider({ children }) {
@@ -61,6 +62,10 @@ export function CartProvider({ children }) {
     );
   }
 
+  function removeFromCart(productId) {
+    setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
+  }
+
   function clearCart() {
     setCart([]);
   }
@@ -75,6 +80,7 @@ export function CartProvider({ children }) {
     addToCart: addToCart,
     updateQtyCart: updateQtyCart,
     clearCart: clearCart,
+    removeFromCart: removeFromCart,
   };
 
   return (
