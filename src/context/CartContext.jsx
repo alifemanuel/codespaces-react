@@ -24,20 +24,32 @@ export function CartProvider({ children }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-        setProducts(data.products);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
+    async function fetchProductsSupabase() {
+      const { data, error } = await supabase
+      .from('product_2v')
+      .select();
+      if (error) {
+        setError('Fetching products failed! ${error}');
+      }else{
+        setProducts(data);
       }
+      setLoading(false);
     }
-    setTimeout(() => {
-      fetchProducts();
-    }, 100);
+    fetchProductsSupabase();
+    // async function fetchProductsAPI() {
+    //   try {
+    //     const response = await fetch(apiUrl);
+    //     const data = await response.json();
+    //     setProducts(data.products);
+    //   } catch (error) {
+    //     setError(error);
+    //   } finally {
+    //     setLoading(false);
+    //   }
+    // }
+    // setTimeout(() => {
+    //   fetchProducts();
+    // }, 100);
   }, []);
 
   // Cart state management

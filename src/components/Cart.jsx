@@ -1,6 +1,6 @@
 import styles from "./Cart.module.css";
 import { useContext } from "react";
-import { CartContext } from "../service/CartContext";
+import { CartContext } from "../context/CartContext";
 import { Trash2 } from "lucide-react"; // Assuming you have lucide-react installed for icons
 
 export function Cart() {

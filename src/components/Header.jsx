@@ -2,7 +2,7 @@ import styles from "./Header.module.css";
 import { Link } from "react-router";
 import { ShoppingBasket } from "lucide-react";
 import { useContext } from "react";
-import { CartContext } from "../service/CartContext";
+import { CartContext } from "../context/CartContext";
 
 export function Header() {
 
