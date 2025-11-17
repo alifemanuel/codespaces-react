@@ -3,20 +3,24 @@ import { ShoppingBasket } from "lucide-react";
 import { Link } from "react-router";
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
+import { SessionContext } from "../context/SessionContext"; // ✅ IMPORTANTE
 import { ThemeToggle } from "./ThemeToggle";
 
 export function Header() {
-  const { cart, session } = useContext(CartContext);
+  const { cart } = useContext(CartContext);
+  const { session } = useContext(SessionContext); // ✅ SESSÃO VEM DAQUI
 
   return (
     <div className={styles.container}>
       <div>
         <Link to="/" className={styles.link}>
-          <h1>PPI Megastore</h1>
+          <h1>TRJ Megastore</h1>
         </Link>
+
         {session && (
           <Link to="/user" className={styles.welcomeMessage}>
-            Welcome, {session.user.user_metadata.username}
+            Welcome, {session.user.user_metadata.username}{" "}
+            {session.user.user_metadata.admin && "(admin ❤)"}
           </Link>
         )}
       </div>
@@ -47,7 +51,7 @@ export function Header() {
             </div>
 
             <p>
-              Total: ${" "}
+              Total: $
               {cart
                 .reduce(
                   (total, product) => total + product.price * product.quantity,

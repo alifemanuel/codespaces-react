@@ -1,6 +1,6 @@
 import styles from "./Login.module.css";
 import { useState, useContext, useEffect } from "react";
-import { CartContext } from "../context/CartContext";
+import { SessionContext } from "../context/SessionContext";
 import { Field } from "@base-ui-components/react/field";
 import { Form } from "@base-ui-components/react/form";
 import { EyeIcon, EyeOffIcon } from "lucide-react";
@@ -11,13 +11,13 @@ import { useNavigate } from "react-router";
 export function Login({ value }) {
   // User Context
   const {
-    handleSignIn,
-    handleSignUp,
-    session,
-    sessionLoading,
-    sessionMessage,
-    sessionError,
-  } = useContext(CartContext);
+  handleSignIn,
+  handleSignUp,
+  session,
+  sessionLoading,
+  sessionMessage,
+  sessionError,
+} = useContext(SessionContext);
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -90,8 +90,13 @@ export function Login({ value }) {
     e.preventDefault();
 
     // Basic validation
+    // TODO: Fazer validação com REGEX
     const newErrors = {};
     if (!formValues.email) newErrors.email = "Email is required";
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (formValues.email && !emailRegex.test(formValues.email)) {
+      newErrors.email = "Invalid email format";
+    }
     if (!formValues.password) newErrors.password = "Password is required";
     if (mode === "register") {
       if (!formValues.username) newErrors.username = "Username is required";
